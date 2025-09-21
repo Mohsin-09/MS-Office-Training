@@ -1,43 +1,39 @@
-# MS Office Teaching Assistant
+# 30-Day MS Office Learning Program
 
-MS Office Teaching Assistant is a **desktop application** built with **Python (Tkinter)** to help instructors create and manage quizzes, tasks, and to-dos for teaching MS Office (Word, Excel, PowerPoint, etc.) to juniors.  
-It provides a structured way to assign daily tasks, track progress, and analyze performance.
+This project is a **desktop learning assistant** built with **Python (Tkinter)** that helps beginners learn Microsoft Office applications (Word, PowerPoint, and Excel) through a 30‑day interactive program.  
+It guides users with **daily objectives, tasks, and quizzes**, and keeps track of progress using simple text files.
 
 ## Features
-- **Quizzes & Tasks**: Create and manage quizzes or tasks to help students learn MS Office.
-- **Daily Progress Tracking**: Track current day tasks and completed days.
-- **Analytics**: View performance statistics of students and completion rates.
-- **Settings Management**: Configure the application according to your teaching needs.
-- **Text File Storage**: All data is saved as simple `.txt` files instead of using a database.
+- **30-Day Curriculum**: Each day contains objectives, practical tasks, and quizzes to reinforce learning.
+- **Progress Tracking**: Uses `.txt` files to store the current day, completed days, analytics, and settings.
+- **Daily Notifications**: Sends desktop reminders using the `plyer` library to stay on schedule.
+- **Theme Support**: Switch between Light and Dark themes from the Settings menu.
+- **Analytics View**: Review learning progress and completed tasks.
 
 ## Project Structure
 ```
-MSOfficeTeachingAssistant/
-├─ main.py             # Main application entry point using Tkinter
-├─ database.py         # Handles reading/writing to text files
-├─ analytics.py        # Generates and displays progress analytics
-├─ settings.py         # Application configuration and preferences
-├─ current_day.py      # Logic for managing daily quizzes and tasks
-├─ day_completed.py    # Tracks completed days and progress
-└─ data/               # Folder containing text files (data store)
-   ├─ quizzes.txt
-   ├─ tasks.txt
-   ├─ progress.txt
-   └─ settings.txt
+MSOfficeLearningProgram/
+├─ main.py             # Main Tkinter application
+├─ current_day.txt     # Stores the current learning day
+├─ day_completed.txt   # Tracks all completed days
+├─ on.txt              # Indicates whether the program is active
+├─ settings.txt        # Stores theme and notification settings
+├─ analytics.txt       # Stores progress analytics
+└─ Syllabus of msoffice (semester).docx   # (Optional) Detailed syllabus
 ```
 
 ## Installation
-1. Clone the repository:
+1. Clone the repository or download the files:
    ```bash
    git clone <repo-url>
-   cd MSOfficeTeachingAssistant
+   cd MSOfficeLearningProgram
    ```
 
 2. Install dependencies:
    ```bash
-   pip install -r requirements.txt
+   pip install tkinter plyer schedule
    ```
-   *Typical dependencies: `tkinter`, `pandas` (for analytics)*
+   *(Tkinter comes pre-installed with most Python distributions.)*
 
 3. Run the application:
    ```bash
@@ -45,25 +41,25 @@ MSOfficeTeachingAssistant/
    ```
 
 ## Usage
-- Launch the app and use the **Settings** menu to configure course details.
-- Add new **quizzes**, **tasks**, or **to-dos** for each day.
-- Monitor student progress and review **analytics** for performance insights.
-- Track completed days to ensure consistent learning progress.
+- Click **Start Learning Program** to begin the 30-day journey.
+- Each day, tasks and quizzes will appear in the app.
+- Use checkboxes to mark completed tasks and quizzes.
+- Daily notifications remind you to complete your work (time configurable in **Settings**).
+- Reset the program anytime via **Menu → Settings → Reset Program**.
 
 ## Data Storage
-Instead of a database, the application stores all information in **plain text files** under the `data/` folder:
-- `quizzes.txt` – Quiz questions and answers
-- `tasks.txt` – Daily tasks and to-dos
-- `progress.txt` – Completed days and user progress
-- `settings.txt` – Application configuration
+No database is required. The program uses plain text files:
+- **current_day.txt** – Current learning day (e.g., `5`)
+- **day_completed.txt** – Comma-separated list of completed days
+- **on.txt** – Tracks whether the program is active
+- **settings.txt** – Theme preference and notification time
+- **analytics.txt** – Summary of progress and performance
 
-These files can be easily edited or backed up manually.
-
-## Technologies Used
+## Dependencies
 - **Python 3**
-- **Tkinter** for the GUI
-- **Text files** for lightweight storage
-- **Pandas/Matplotlib** (optional) for analytics
+- **Tkinter** – GUI library
+- **Plyer** – For system notifications
+- **Schedule** – (Optional) for scheduling tasks
 
 ## License
-This project is licensed under the MIT License.
+This project is released under the MIT License.
